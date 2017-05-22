@@ -29,13 +29,23 @@ spec:
       containers:
       -
         name: ballerina-routingservice
-        image: 192.168.57.130:5000/ballerina-test
+        image: ballerina-docker-registry.com/ubuntu-16.04_oracle-java-8.121:0.1
         env:
         -
           name: KUBERNETES_MASTER_SKIP_SSL_VERIFICATION
           value: "true"
         -
-          name :
+          name : pattern
+          value : "ballerina-pattern1"
+        -
+          name : ballerina_home
+          value : "/opt/ballerina"
+        -
+          name : ballerina_test_repo
+          value : "https://github.com/yasassri/ballerina-distributed-tests.git"
+        -
+          name : ballerina_test_repo_name
+          value : "ballerina-distributed-tests"
         -
           name: KUBERNETES_API_SERVER
           value: "http://192.168.57.12:8080"

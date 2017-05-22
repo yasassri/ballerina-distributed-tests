@@ -13,18 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# These variables are parsed as Environment variables
-pattern=null
-ballerina_home=/home/yasassri/QA_STUFF/current_work/Ballerina_prod/test-repo/shell/bal_home
-ballerina_test_repo=https://github.com/yasassri/ballerina-distributed-tests.git
-balerina_test_repo_name=ballerina-distributed-tests
+# Docker init script, this is the Entry Point of the Docker image
+# These variables are parsed as Environment variables through Kubernetes controller
+
+#pattern=null
+#ballerina_home=/opt/ballerina
+#ballerina_test_repo=https://github.com/yasassri/ballerina-distributed-tests.git
+#ballerina_test_repo_name=ballerina-distributed-tests
 
 mkdir -p ${ballerina_home}
 cd ${ballerina_home}
 mkdir distribution
 
-echo "Cloning the Ballerina Repo!"
+echo "Cloning the Ballerina Test Repo!!!"
 git clone ${ballerina_test_repo}
 
-cd ${ballerina_home}/${balerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
+cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
 sh fetch-artifacts.sh

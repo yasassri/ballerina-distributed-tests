@@ -1,25 +1,9 @@
 #!/bin/bash
 
-pattern=null
-ballerina_home=/home/yasassri/QA_STUFF/current_work/Ballerina_prod/test-repo/shell/bal_home
-ballerina_test_repo=https://github.com/yasassri/ballerina-distributed-tests.git #should parse as a Environment variable
-balerina_test_repo_name=ballerina-distributed-tests
-
-#TO-DO : handle if pattern is not set
-
-#mkdir -p ${ballerina_home}
-#cd ${ballerina_home}
-#mkdir distribution
-
-#echo "Cloning the Ballerina Repo!"
-#git clone ${ballerina_test_repo}
-
-#cd into the Git artifact directory
-
 #Download the latest dirtribution
 sh get-latest-distribution.sh
 
-#Extract the distribution to the temporary location and moving to the distribution directory
+#Extract the distribution to the temporary location and move it to the distribution directory
 mkdir tmp
 unzip ballerina-tools-*.zip -d tmp/
 
