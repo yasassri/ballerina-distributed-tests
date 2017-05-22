@@ -1,4 +1,5 @@
-package resources.services
+package resources.services;
+
 import ballerina.net.http;
 
 @http:BasePath {value:"/echo"}

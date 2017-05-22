@@ -35,6 +35,8 @@ spec:
           name: KUBERNETES_MASTER_SKIP_SSL_VERIFICATION
           value: "true"
         -
+          name :
+        -
           name: KUBERNETES_API_SERVER
           value: "http://192.168.57.12:8080"
 
