@@ -37,14 +37,11 @@ spec:
         -
           name: KUBERNETES_API_SERVER
           value: "http://192.168.57.12:8080"
-          # -
-          # name: KEY_STORE_PASSWORD
-          # value: wso2carbon
+
         ports:
         -
           containerPort: 9090
           protocol: "TCP"
-     
-       
+
       imagePullSecrets:
        - name: registrypullsecret
