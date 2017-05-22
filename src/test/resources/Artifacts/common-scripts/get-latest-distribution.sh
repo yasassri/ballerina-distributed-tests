@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# This is triggered from fetch-artifacts.sh  
+
 jenkins_base_url="https://wso2.org/jenkins/job/ballerinalang/job/tools-distribution"
 
 #Get the Latest Successful Build URL from JENKINS

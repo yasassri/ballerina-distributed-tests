@@ -27,8 +27,7 @@ spec:
       port: 9090
       targetPort: 9090
       nodePort: 32013
- 
-    
+
   # label keys and values that must match in order to receive traffic for this service
   selector:
     name: ballerina-test-version-1

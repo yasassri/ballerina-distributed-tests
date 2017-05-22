@@ -28,8 +28,8 @@ spec:
     spec:
       containers:
       -
-        name: ballerina-routingservice
-        image: ballerina-docker-registry.com/ubuntu-16.04_oracle-java-8.121:0.1
+        name: ubuntu-16.04_oracle-java-8.121
+        image: ballerina-docker-registry.com/ubuntu-16.04_oracle-java-8.121:1.0
         env:
         -
           name: KUBERNETES_MASTER_SKIP_SSL_VERIFICATION
