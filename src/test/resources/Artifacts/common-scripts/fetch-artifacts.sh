@@ -26,16 +26,18 @@ sh get-latest-distribution.sh
 
 #Extract the distribution to the temporary location and move it to the distribution directory
 mkdir tmp
-unzip ballerina-tools-*.zip -d tmp/
+unzip -q ballerina-tools-*.zip -d tmp/
 
+echo "Copying ballerina files from the temp directory to distribution directory"
 cp -r tmp/*/* ${ballerina_home}/distribution/
+echo "Deleting the temp directory!!"
 rm -rf tmp
-
+echo "Copying the dependency Jars"
 #Copy the dependency Jars to the server
 cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/resources/bre/lib/* ${ballerina_home}/distribution/bre/lib
 
 #cd into the services package structure root
 cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
-
+echo "Starting the Ballerina Server!!!"
 #Start the Server
 sh ${ballerina_home}/distribution/bin/ballerina.sh run service resources/services
