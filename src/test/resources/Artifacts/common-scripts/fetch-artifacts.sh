@@ -32,7 +32,7 @@ cp -r tmp/*/* ${ballerina_home}/distribution/
 rm -rf tmp
 
 #Copy the dependency Jars to the server
-cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/bre/lib/* ${ballerina_home}/distribution/bre/lib
+cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/resources/bre/lib/* ${ballerina_home}/distribution/bre/lib
 
 #cd into the services package structure root
 cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
