@@ -38,4 +38,4 @@ cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts
 cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
 
 #Start the Server
-sh ${ballerina_home}/distribution/ballerina.sh services
+sh ${ballerina_home}/distribution/bin/ballerina.sh run service resources/services
