@@ -22,7 +22,7 @@ kubectl create -f $script_path/ballerina_test_service.yaml
 kubectl create -f $script_path/ballerina_test_rc.yaml
 
 ### Add the Waiting Logic Here
-sleep 100
+sleep 10
 pods=$(kubectl get pods --output=jsonpath={.items..metadata.name})
 json='['
 for pod in $pods; do

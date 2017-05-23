@@ -15,6 +15,12 @@
 
 # This file is triggered from init.sh with the Docker Entry point
 
+echo "ballerina_home is : " ${ballerina_home}
+echo "ballerina_test_repo is : " ${balerina_test_repo}
+echo "ballerina_test_repo_name is : " ${balerina_test_repo_name}
+echo "Deployment Pattern is : " ${pattern}
+
+
 #Download the latest dirtribution
 sh get-latest-distribution.sh
 
@@ -26,10 +32,10 @@ cp -r tmp/*/* ${ballerina_home}/distribution/
 rm -rf tmp
 
 #Copy the dependency Jars to the server
-cp -r ${ballerina_home}/${balerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/bre/lib/* ${ballerina_home}/distribution/bre/lib
+cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/bre/lib/* ${ballerina_home}/distribution/bre/lib
 
 #cd into the services package structure root
-cd ${ballerina_home}/${balerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
+cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
 
 #Start the Server
 sh ${ballerina_home}/distribution/ballerina.sh services

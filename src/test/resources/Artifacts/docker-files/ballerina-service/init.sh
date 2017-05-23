@@ -21,12 +21,20 @@
 #ballerina_test_repo=https://github.com/yasassri/ballerina-distributed-tests.git
 #ballerina_test_repo_name=ballerina-distributed-tests
 
-mkdir -p ${ballerina_home}
-cd ${ballerina_home}
-mkdir distribution
+#mkdir -p ${ballerina_home}
+#cd ${ballerina_home}
+#mkdir distribution
 
 echo "Cloning the Ballerina Test Repo!!!"
-git clone ${ballerina_test_repo}
+echo "ballerina_home : " $ballerina_home
+echo "repo name : "$ballerina_test_repo
+echo "ballerina_test_repo_name : "$ballerina_test_repo_name
 
-cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
-sh fetch-artifacts.sh
+cd /opt
+unzip ballerina-tools.zip
+cd /opt/ballerina-tools-0.88-SNAPSHOT
+./bin/ballerina run service samples/echoService
+#git clone ${ballerina_test_repo}
+
+#cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
+#sh fetch-artifacts.sh

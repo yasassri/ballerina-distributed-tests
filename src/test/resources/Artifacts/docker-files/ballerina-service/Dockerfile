@@ -4,4 +4,4 @@ COPY init.sh /usr/local/bin/init.sh
 RUN chmod +x /usr/local/bin/init.sh
 
 # Docker Entry Point
-ENTRYPOINT ["/usr/local/bin/init.sh"]
+ENTRYPOINT ["/opt/init/init.sh"]
