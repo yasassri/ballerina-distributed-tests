@@ -34,7 +34,7 @@ cd /opt
 unzip ballerina-tools.zip
 cd /opt/ballerina-tools-0.88-SNAPSHOT
 ./bin/ballerina run service samples/echoService
-#git clone ${ballerina_test_repo}
+git clone ${ballerina_test_repo}
 
-#cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
-#sh fetch-artifacts.sh
+cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/common-scripts
+sh fetch-artifacts.sh
