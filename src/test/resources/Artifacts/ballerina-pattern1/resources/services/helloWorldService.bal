@@ -4,14 +4,13 @@ import ballerina.lang.messages;
 import ballerina.net.http;
 
 @http:BasePath {value:"/hello"}
-service helloWorld {
+service pingService {
     
     @http:GET{}
     resource sayHello (message m) {
         message response = {};
-        messages:setStringPayload(response, "Hello, World!");
+        messages:setStringPayload(response, "Ping from the server!");
         reply response;
-    
     }
     
 }

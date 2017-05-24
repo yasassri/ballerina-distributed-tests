@@ -26,11 +26,11 @@ host=192.168.57.143
 port=32013
 echo "Waiting Ballerina to launch on http://${host}:${port}"
 sleep 10
-until $(curl --output /dev/null --silent --head --fail http://${host}:${port}/hello); do
+until $(curl --output /dev/null --silent --get --fail http://${host}:${port}/hello); do
     printf '.'
     sleep 3
 done
-
+echo "\nServer started successfully!! \nGenerating The deployment.json!"
 pods=$(kubectl get pods --output=jsonpath={.items..metadata.name})
 json='['
 for pod in $pods; do
