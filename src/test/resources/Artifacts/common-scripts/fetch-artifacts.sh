@@ -38,6 +38,7 @@ cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts
 
 #cd into the services package structure root
 cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}
+comod +x ${ballerina_home}/distribution/bin/ballerina
 echo "Starting the Ballerina Server!!!"
 #Start the Server
-sh ${ballerina_home}/distribution/bin/ballerina.sh run service resources/services
+sh ${ballerina_home}/distribution/bin/ballerina run service resources/services
