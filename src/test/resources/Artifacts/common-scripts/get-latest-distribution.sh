@@ -35,6 +35,3 @@ downloadable_url=$(echo $dirtribution_url | sed -n 's:.*<relativePath>\(.*\)</re
 
 echo "Downloadable URL : " $latest_successfull_build_url"org.ballerinalang.tools\$ballerina-tools/artifact/"$downloadable_url
 wget $latest_successfull_build_url"org.ballerinalang.tools\$ballerina-tools/artifact/"$downloadable_url
-
-
-

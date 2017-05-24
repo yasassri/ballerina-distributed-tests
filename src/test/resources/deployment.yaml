@@ -14,10 +14,10 @@ deployments:
   -
     name: pattern2
     enable: false
-    deployscripts: wso2am/deploy.sh
+    deployscripts: deploy.sh
     repository: N/A
     suite: pattern2
-    undeployscripts: wso2am/undeploy.sh
+    undeployscripts: undeploy.sh
     filePath: data.json
     instancemap :
     -
