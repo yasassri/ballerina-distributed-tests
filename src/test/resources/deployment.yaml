@@ -3,7 +3,7 @@ deployments:
     name: ballerina-pattern1
     enable: true
     deployscripts: deploy.sh
-    repository: https://github.com/erandidesilva/ballerina-kubernetes-artifacts.git
+    repository: N/A
     suite: pattern1
     undeployscripts: undeploy.sh
     filePath: deployment.json
@@ -15,7 +15,7 @@ deployments:
     name: pattern2
     enable: false
     deployscripts: wso2am/deploy.sh
-    repository: https://github.com/erandidesilva/ballerina-kubernetes-artifacts.git
+    repository: N/A
     suite: pattern2
     undeployscripts: wso2am/undeploy.sh
     filePath: data.json

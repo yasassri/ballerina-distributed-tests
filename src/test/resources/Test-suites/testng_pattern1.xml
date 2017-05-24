@@ -23,7 +23,7 @@
     <test name="ballerina-tests" preserve-order="true" parallel="false">
         <classes>
             <!--<class name="BallerinaIntegrationTestCase"/>-->
-            <class name="org.wso2.ballerina.deployment.routing.ContentBasedRouting"/>
+            <class name="org.wso2.ballerina.deployment.routing.EchoService"/>
         </classes>
     </test>
 </suite>

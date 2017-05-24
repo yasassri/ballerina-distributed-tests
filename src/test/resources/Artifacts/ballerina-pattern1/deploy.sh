@@ -30,7 +30,7 @@ until $(curl --output /dev/null --silent --get --fail http://${host}:${port}/hel
     printf '.'
     sleep 3
 done
-echo "\nServer started successfully!! \nGenerating The deployment.json!"
+echo '\nServer started successfully!! \nGenerating The deployment.json!'
 pods=$(kubectl get pods --output=jsonpath={.items..metadata.name})
 json='['
 for pod in $pods; do

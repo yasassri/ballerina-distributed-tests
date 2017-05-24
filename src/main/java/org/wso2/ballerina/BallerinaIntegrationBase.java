@@ -2,11 +2,11 @@ package org.wso2.ballerina;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.wso2.carbon.automation.distributed.beans.InstanceUrls;
-import org.wso2.carbon.automation.distributed.beans.Port;
-import org.wso2.carbon.automation.distributed.commons.DeploymentConfigurationReader;
-import org.wso2.carbon.automation.distributed.commons.DeploymentDataReader;
-import org.wso2.carbon.automation.distributed.utills.ScriptExecutorUtil;
+import org.wso2.ballerina.deployment.beans.InstanceUrls;
+import org.wso2.ballerina.deployment.beans.Port;
+import org.wso2.ballerina.deployment.commons.DeploymentConfigurationReader;
+import org.wso2.ballerina.deployment.commons.DeploymentDataReader;
+import org.wso2.ballerina.deployment.utills.ScriptExecutorUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,7 +43,6 @@ public class BallerinaIntegrationBase {
             if (instanceMap != null) {
                 if (url.getLable().equals(instanceMap.get("ballerina"))) {
                     ballerinaURL = getHTTPSUrl("servlet-http", url.getHostIP(), url.getPorts(), "");
-                    System.out.println("BAL-URL=======" + ballerinaURL);
                 }
             }
         }
@@ -64,8 +63,6 @@ public class BallerinaIntegrationBase {
     //deploy environment
     protected void setTestSuite(String pattern) throws IOException {
 
-        //DistributedPlatformExtension my = new DistributedPlatformExtension();
-        //my.initiate();
         ScriptExecutorUtil.deployScenario(pattern);
 
     }
