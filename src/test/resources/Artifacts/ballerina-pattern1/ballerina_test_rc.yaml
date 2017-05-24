@@ -47,6 +47,9 @@ spec:
           name : ballerina_test_repo_name
           value : "ballerina-distributed-tests"
         -
+          name : JAVA_HOME
+          value : "/opt/java/jdk1.8.0_121"
+        -
           name: KUBERNETES_API_SERVERKUBERNETES_API_SERVER
           value: "http://192.168.57.12:8080"
 

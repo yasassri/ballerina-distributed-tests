@@ -17,12 +17,20 @@ prgdir=$(dirname "$0")
 script_path=$(cd "$prgdir"; pwd)
 echo $KUBERNETES_MASTER
 echo $script_path
-echo "Creating the K8 Pods!!!!"
+echo "Creating the K8S Pods!!!!"
 kubectl create -f $script_path/ballerina_test_service.yaml
 kubectl create -f $script_path/ballerina_test_rc.yaml
 
-### Add the Waiting Logic Here
+### Add the Waiting Logic Here TO-DO : ATM The host is hard coded, Need to improve this.
+host=192.168.57.143
+port=32013
+echo "Waiting Ballerina to launch on http://${host}:${port}"
 sleep 10
+until $(curl --output /dev/null --silent --head --fail http://${host}:${port}/hello); do
+    printf '.'
+    sleep 3
+done
+
 pods=$(kubectl get pods --output=jsonpath={.items..metadata.name})
 json='['
 for pod in $pods; do
