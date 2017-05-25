@@ -7,7 +7,6 @@ import org.wso2.ballerina.deployment.beans.Port;
 import org.wso2.ballerina.deployment.commons.DeploymentConfigurationReader;
 import org.wso2.ballerina.deployment.commons.DeploymentDataReader;
 import org.wso2.ballerina.deployment.utills.ScriptExecutorUtil;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -41,8 +40,12 @@ public class BallerinaInit {
         List<InstanceUrls> urlList = dataJsonReader.getInstanceUrlsList();
         for (InstanceUrls url : urlList) {
             if (instanceMap != null) {
-                if (url.getLable().equals(instanceMap.get("ballerina"))) {
-                    ballerinaURL = getHTTPSUrl("servlet-http", url.getHostIP(), url.getPorts(), "");
+                if (url.getLable().equals(instanceMap.get(BallerinaConstants.POD_TAG_NAME))) {
+                    if (isURLRemapEnabled()) {
+                        ballerinaURL = getRemappedURL(url.getHostIP());
+                    } else {
+                        ballerinaURL = getHTTPSUrl("servlet-http", url.getHostIP(), url.getPorts(), "");
+                    }
                 }
             }
         }
@@ -60,14 +63,27 @@ public class BallerinaInit {
         return Url;
     }
 
-    //deploy environment
-    protected void setTestSuite(String pattern) throws IOException {
-
-        ScriptExecutorUtil.deployScenario(pattern);
-
+    private boolean isURLRemapEnabled() {
+        log.info("URL Remap Enabled is set to : " + System.getenv(BallerinaConstants.ENABLE_URL_REMAP));
+        return Boolean.parseBoolean((System.getenv(BallerinaConstants.ENABLE_URL_REMAP)));
     }
 
-    //undeploy environment
+    private String getRemappedURL(String localIP) {
+
+        String remappedURL = System.getenv("IP_" +localIP.replace(".","_"));
+
+        if (remappedURL.equals("") | remappedURL == null) {
+            log.info("No remap value found for the Local IP : " + localIP);
+        }
+        return remappedURL;
+    }
+
+    //deploy environment
+    protected void setTestSuite(String pattern) throws IOException {
+        ScriptExecutorUtil.deployScenario(pattern);
+    }
+
+    //Undeploy environment
     protected void unSetTestSuite(String pattern) throws Exception {
         ScriptExecutorUtil.unDeployScenario(pattern);
     }
