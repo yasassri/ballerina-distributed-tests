@@ -4,9 +4,8 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import org.wso2.ballerina.BallerinaIntegrationBase;
 
-public class BallerinaBaseTest extends BallerinaIntegrationBase{
+public class BallerinaBaseTest extends BallerinaInit {
 
     /**
      * Base test class for all Ballerina test cases.
@@ -25,7 +24,7 @@ public class BallerinaBaseTest extends BallerinaIntegrationBase{
 
     @AfterSuite(alwaysRun = true)
     public void deleteEnvironment(ITestContext ctx) throws Exception {
-        //super.unSetTestSuite(ctx.getCurrentXmlTest().getSuite().getName());
+        super.unSetTestSuite(ctx.getCurrentXmlTest().getSuite().getName());
     }
 
 }

@@ -23,7 +23,6 @@ package org.wso2.ballerina.deployment;
 public class FrameworkConstants {
     public static final String SYSTEM_ARTIFACT_RESOURCE_LOCATION = "framework.resource.location";
     public static final String JSON_FILE_PATH = "jsonFilePath";
-    public static final String TESTLINK_CLASSMAP_SPLITTER = "#";
     public static final String DEFAULT_TESTNG_FILE = "testng.xml";
     public static final String TESTNG_RESULT_OUT_DIRECTORY = "intergration-tests";
 

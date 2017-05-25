@@ -1,4 +1,4 @@
-package org.wso2.ballerina;
+package org.wso2.ballerina.deployment.Base;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class BallerinaIntegrationBase {
+public class BallerinaInit {
 
-    private static final Log log = LogFactory.getLog(BallerinaIntegrationBase.class);
+    private static final Log log = LogFactory.getLog(BallerinaInit.class);
     public static String ballerinaURL;
 
     protected HashMap<String, String> instanceMap;

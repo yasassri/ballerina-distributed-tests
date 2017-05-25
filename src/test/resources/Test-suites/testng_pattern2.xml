@@ -20,8 +20,7 @@
 
 <suite name="pattern2">
     <parameter name="useDefaultListeners" value="false"/>
-    <test name="lifecycle-pattern2" preserve-order="true" parallel="false">
-
+    <test name="ballerina_jms" preserve-order="true" parallel="false">
         <classes>
             <!--<class name="BallerinaIntegrationTestCase"/>-->
         </classes>

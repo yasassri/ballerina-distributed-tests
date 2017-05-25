@@ -1,6 +1,6 @@
 deployments:
   -
-    name: ballerina-pattern1
+    name: ballerina_standalone
     enable: true
     deployscripts: deploy.sh
     repository: N/A
@@ -22,4 +22,3 @@ deployments:
     instancemap :
     -
       ballerina : ballerina-test-version-1
-

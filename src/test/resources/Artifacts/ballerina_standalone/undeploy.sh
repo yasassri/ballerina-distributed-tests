@@ -1,3 +1,4 @@
+#!/bin/bash
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,6 +12,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#!/bin/bash
 echo "Removing the K8S PODS!!!!!"
 kubectl delete rc,services,pods -l name="ballerina-test-version-1"

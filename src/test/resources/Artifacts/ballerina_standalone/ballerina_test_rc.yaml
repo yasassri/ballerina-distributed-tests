@@ -36,7 +36,7 @@ spec:
           value: "true"
         -
           name : pattern
-          value : "ballerina-pattern1"
+          value : "ballerina_standalone"
         -
           name : ballerina_home
           value : "/opt/ballerina"

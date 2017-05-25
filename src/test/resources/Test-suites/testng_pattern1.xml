@@ -15,14 +15,11 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="ballerina-pattern1">
-    <parameter name="useDefaultListeners" value="false"/>
+<suite name="ballerina_standalone">
     <test name="ballerina-tests" preserve-order="true" parallel="false">
         <classes>
-            <!--<class name="BallerinaIntegrationTestCase"/>-->
             <class name="org.wso2.ballerina.deployment.routing.EchoService"/>
         </classes>
     </test>

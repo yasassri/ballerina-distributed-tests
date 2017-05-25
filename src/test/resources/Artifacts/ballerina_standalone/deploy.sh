@@ -61,7 +61,6 @@ for pod in $pods; do
 done
 
 json=${json:0:${#json}-1}
-
 json+="]"
 
 echo $json;
