@@ -41,7 +41,7 @@ cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${
 chmod +x ${ballerina_home}/distribution/bin/ballerina
 
 #Source the Environment file
-source /etc/environment
+#source /etc/environment
 echo "Starting the Ballerina Server!!!"
 #Start the Server
 sh ${ballerina_home}/distribution/bin/ballerina run service resources/services

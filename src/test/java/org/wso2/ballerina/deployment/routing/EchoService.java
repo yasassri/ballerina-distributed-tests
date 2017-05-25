@@ -13,6 +13,7 @@ public class EchoService extends BallerinaBaseTest {
     @Test
     public void getPostToEcho() throws Exception{
         String serviceURL = ballerinaURL + "/echo";
+        String tempURL = "http://203.94.95.197:32013/echo";
 
         StringRequestEntity requestEntity = new StringRequestEntity(
                 "{ \"Hello\":\"Ballerina\" };",
@@ -20,7 +21,7 @@ public class EchoService extends BallerinaBaseTest {
                 "UTF-8");
 
         HttpClient client = new HttpClient();
-        PostMethod post = new PostMethod(serviceURL);
+        PostMethod post = new PostMethod(tempURL);
 
         post.setRequestEntity(requestEntity);
 
