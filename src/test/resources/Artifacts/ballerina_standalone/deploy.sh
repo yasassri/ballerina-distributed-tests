@@ -22,7 +22,7 @@ kubectl create -f $script_path/ballerina_test_service.yaml
 kubectl create -f $script_path/ballerina_test_rc.yaml
 
 ### Add the Waiting Logic Here TO-DO : ATM The host is hard coded, Need to improve this.
-host=192.168.57.143
+host=203.94.95.197
 port=32013
 echo "Waiting Ballerina to launch on http://${host}:${port}"
 sleep 10
