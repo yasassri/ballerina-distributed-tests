@@ -29,11 +29,8 @@ spec:
       containers:
       -
         name: ballerina-service
-        image: ballerina-docker-registry.com/ubuntu-16.04_oracle-java-8.121:1.0
+        image: dockerhub.private.wso2.com/ubuntu_16.04-oracle_java-8.121:1.0
         env:
-        -
-          name: KUBERNETES_MASTER_SKIP_SSL_VERIFICATION
-          value: "true"
         -
           name : pattern
           value : "ballerina_standalone"
@@ -49,9 +46,6 @@ spec:
         -
           name : JAVA_HOME
           value : "/opt/java/jdk1.8.0_121"
-        -
-          name: KUBERNETES_API_SERVERKUBERNETES_API_SERVER
-          value: "http://192.168.57.12:8080"
 
         ports:
         -
@@ -59,4 +53,4 @@ spec:
           protocol: "TCP"
 
       imagePullSecrets:
-       - name: registrypullsecret
+       - name: mykey

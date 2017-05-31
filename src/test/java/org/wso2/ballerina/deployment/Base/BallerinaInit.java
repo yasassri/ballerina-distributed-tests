@@ -41,11 +41,7 @@ public class BallerinaInit {
         for (InstanceUrls url : urlList) {
             if (instanceMap != null) {
                 if (url.getLable().equals(instanceMap.get(BallerinaConstants.POD_TAG_NAME))) {
-                    if (isURLRemapEnabled()) {
-                        ballerinaURL = getRemappedURL(url.getHostIP());
-                    } else {
                         ballerinaURL = getHTTPSUrl("servlet-http", url.getHostIP(), url.getPorts(), "");
-                    }
                 }
             }
         }
@@ -87,5 +83,4 @@ public class BallerinaInit {
     protected void unSetTestSuite(String pattern) throws Exception {
         ScriptExecutorUtil.unDeployScenario(pattern);
     }
-
 }

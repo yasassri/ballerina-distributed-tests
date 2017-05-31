@@ -33,6 +33,7 @@ cp -r tmp/*/* ${ballerina_home}/distribution/
 echo "Deleting the temp directory!!"
 rm -rf tmp
 echo "Copying the dependency Jars"
+
 #Copy the dependency Jars to the server
 cp -r ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${pattern}/resources/bre/lib/* ${ballerina_home}/distribution/bre/lib
 
@@ -41,7 +42,7 @@ cd ${ballerina_home}/${ballerina_test_repo_name}/src/test/resources/Artifacts/${
 chmod +x ${ballerina_home}/distribution/bin/ballerina
 
 #Source the Environment file
-#source /etc/environment
 echo "Starting the Ballerina Server!!!"
+
 #Start the Server
 sh ${ballerina_home}/distribution/bin/ballerina run service resources/services

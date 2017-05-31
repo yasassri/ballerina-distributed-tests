@@ -13,23 +13,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ballerina_port=32013
+
 prgdir=$(dirname "$0")
 script_path=$(cd "$prgdir"; pwd)
-echo $KUBERNETES_MASTER
-echo $script_path
+echo "Kube Master URL is Set to : "$KUBERNETES_MASTER
+echo "Current location : "$script_path
 echo "Creating the K8S Pods!!!!"
+
 kubectl create -f $script_path/ballerina_test_service.yaml
 kubectl create -f $script_path/ballerina_test_rc.yaml
 
-### Add the Waiting Logic Here TO-DO : ATM The host is hard coded, Need to improve this.
-host=203.94.95.197
-port=32013
-echo "Waiting Ballerina to launch on http://${host}:${port}"
+function getKubeNodeIP() {
+    IFS=$','
+    node_ip=$(kubectl get node $1 -o template --template='{{range.status.addresses}}{{if eq .type "ExternalIP"}}{{.address}}{{end}}{{end}}')
+    if [ -z $node_ip ]; then
+      echo $(kubectl get node $1 -o template --template='{{range.status.addresses}}{{if eq .type "InternalIP"}}{{.address}}{{end}}{{end}}')
+    else
+      echo $node_ip
+    fi
+}
+
+kube_nodes=($(kubectl get nodes | awk '{if (NR!=1) print $1}'))
+host=$(getKubeNodeIP "${kube_nodes[0]}")
+
+echo "Waiting Ballerina to launch on http://${host}:${ballerina_port}"
 sleep 10
-until $(curl --output /dev/null --silent --get --fail http://${host}:${port}/hello); do
+
+until $(curl --output /dev/null --silent --get --fail http://${host}:${ballerina_port}/hello); do
     printf '.'
     sleep 3
 done
+
 echo 'Server started successfully!! Generating The deployment.json!'
 pods=$(kubectl get pods --output=jsonpath={.items..metadata.name})
 json='['
